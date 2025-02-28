@@ -77,7 +77,7 @@
 <body>
     <button class="menu-btn" onclick="toggleMenu()">☰ Menu</button>
     <div class="sidebar">
-        <a onclick="loadPage('home')">Home</a>
+        <a href="https://andrzejkloc.github.io/aboutme/">Home</a>
         <a onclick="loadPage('o-co-kaman')">O co kaman?</a>
         <a onclick="loadPage('chce-do-domu')">Chcę do domu</a>
         <a onclick="loadPage('dlaczego-polska')">Dlaczego Polska?</a>
@@ -108,9 +108,6 @@
         function loadPage(page) {
             let content = document.getElementById('content');
             switch (page) {
-                case 'home':
-                    content.innerHTML = '<h1>Home</h1><p>Witaj na stronie głównej!</p>';
-                    break;
                 case 'o-co-kaman':
                     content.innerHTML = '<h1>O co kaman?</h1><p>Wyjaśnienie tej zagadki.</p>';
                     break;

@@ -40,6 +40,7 @@
             color: white;
             padding: 15px;
             text-decoration: none;
+            cursor: pointer;
         }
         .sidebar a:hover {
             background: #575757;
@@ -68,19 +69,23 @@
             width: 25px;
             height: 25px;
         }
+        #content {
+            margin-top: 20px;
+        }
     </style>
 </head>
 <body>
     <button class="menu-btn" onclick="toggleMenu()">☰ Menu</button>
     <div class="sidebar">
-        <a href="#home">Home</a>
-        <a href="#o-co-kaman">O co kaman?</a>
-        <a href="#chce-do-domu">Chcę do domu</a>
-        <a href="#dlaczego-polska">Dlaczego Polska?</a>
-        <a href="#dlaczego-nie-norwegia">Dlaczego nie Norwegia</a>
-        <a href="#kontakt">Kontakt</a>
+        <a onclick="loadPage('home')">Home</a>
+        <a onclick="loadPage('o-co-kaman')">O co kaman?</a>
+        <a onclick="loadPage('chce-do-domu')">Chcę do domu</a>
+        <a onclick="loadPage('dlaczego-polska')">Dlaczego Polska?</a>
+        <a onclick="loadPage('dlaczego-nie-norwegia')">Dlaczego nie Norwegia</a>
+        <a onclick="loadPage('kontakt')">Kontakt</a>
     </div>
 
+    <div id="content">
 <h1>O mnie</h1>
     <p>Cześć! Nazywam się <b>Andrzej Kloc</b> i jestem doświadczonym inżynierem środowiska, który z entuzjazmem podchodzi do nowych technologii i odnawialnych źródeł energii. Można powiedzieć, że jestem trochę jak fotowoltaika – zawsze naładowany energią! ⚡</p>
     
@@ -93,20 +98,45 @@
     <p>Moim celem jest tworzenie rozwiązań, które łączą nowoczesność z dbałością o środowisko – bo przecież fajnie byłoby zostawić Ziemię w lepszym stanie, niż ją zastaliśmy.</p>
     
     <p>Zapraszam do kontaktu i współpracy! Nie gryzę (chyba że chodzi o pracę bez kawy 😆).</p>
-    
-    <h2 id="kontakt">Kontakt</h2>
-    <p class="contact-info">
-        <img src="https://cdn-icons-png.flaticon.com/512/561/561127.png" alt="Email">
-        <a href="mailto:and.kloc@gmail.com">and.kloc@gmail.com</a>
-    </p>
-    <p class="contact-info">
-        <img src="https://cdn-icons-png.flaticon.com/512/733/733547.png" alt="Facebook">
-        <a href="https://www.facebook.com/andrzej.kloc.10" target="_blank">Mój profil na Facebooku</a>
-    </p>
+    </div>
 
     <script>
         function toggleMenu() {
             document.body.classList.toggle('open');
+        }
+
+        function loadPage(page) {
+            let content = document.getElementById('content');
+            switch (page) {
+                case 'home':
+                    content.innerHTML = '<h1>Home</h1><p>Witaj na stronie głównej!</p>';
+                    break;
+                case 'o-co-kaman':
+                    content.innerHTML = '<h1>O co kaman?</h1><p>Wyjaśnienie tej zagadki.</p>';
+                    break;
+                case 'chce-do-domu':
+                    content.innerHTML = '<h1>Chcę do domu</h1><p>Powrót do domu to zawsze dobry pomysł.</p>';
+                    break;
+                case 'dlaczego-polska':
+                    content.innerHTML = '<h1>Dlaczego Polska?</h1><p>Polska to piękny kraj z wieloma możliwościami.</p>';
+                    break;
+                case 'dlaczego-nie-norwegia':
+                    content.innerHTML = '<h1>Dlaczego nie Norwegia?</h1><p>Każdy kraj ma swoje plusy i minusy.</p>';
+                    break;
+                case 'kontakt':
+                    content.innerHTML = '<h1>Kontakt</h1>' +
+                        '<p class="contact-info">' +
+                        '<img src="https://cdn-icons-png.flaticon.com/512/561/561127.png" alt="Email">' +
+                        '<a href="mailto:and.kloc@gmail.com">and.kloc@gmail.com</a>' +
+                        '</p>' +
+                        '<p class="contact-info">' +
+                        '<img src="https://cdn-icons-png.flaticon.com/512/733/733547.png" alt="Facebook">' +
+                        '<a href="https://www.facebook.com/andrzej.kloc.10" target="_blank">Mój profil na Facebooku</a>' +
+                        '</p>';
+                    break;
+                default:
+                    content.innerHTML = '<h1>Strona nieznaleziona</h1><p>Nie znaleziono żądanej strony.</p>';
+            }
         }
     </script>
 </body>

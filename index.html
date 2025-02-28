@@ -77,7 +77,7 @@
 <body>
     <button class="menu-btn" onclick="toggleMenu()">☰ Menu</button>
     <div class="sidebar">
-        <a href="https://andrzejkloc.github.io/aboutme/">Home</a>
+        <a href="https://andrzejkloc.github.io/aboutme/" onclick="closeMenu()">Home</a>
         <a onclick="loadPage('o-co-kaman')">O co kaman?</a>
         <a onclick="loadPage('chcę-do-domu')">Chcę do domu</a>
         <a onclick="loadPage('dlaczego-polska')">Dlaczego Polska?</a>
@@ -103,6 +103,10 @@
     <script>
         function toggleMenu() {
             document.body.classList.toggle('open');
+        }
+
+        function closeMenu() {
+            document.body.classList.remove('open');
         }
 
         function loadPage(page) {
@@ -137,6 +141,7 @@
                 default:
                     content.innerHTML = '<h1>Strona nieznaleziona</h1><p>Nie znaleziono żądanej strony.</p>';
             }
+            closeMenu(); // Automatycznie zamyka menu po wyborze
         }
     </script>
 </body>

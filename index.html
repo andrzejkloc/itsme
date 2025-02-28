@@ -24,32 +24,58 @@
             color: #add8e6;
             text-decoration: none;
         }
-        .contact-info {
-            display: flex;
-            align-items: center;
-            gap: 10px;
+        .sidebar {
+            position: fixed;
+            left: 0;
+            top: 0;
+            width: 250px;
+            height: 100%;
+            background: rgba(0, 0, 0, 0.8);
+            padding-top: 20px;
+            transform: translateX(-250px);
+            transition: transform 0.3s ease-in-out;
         }
-        .contact-info img {
-            width: 20px;
-            height: 20px;
+        .sidebar a {
+            display: block;
+            color: white;
+            padding: 15px;
+            text-decoration: none;
+        }
+        .sidebar a:hover {
+            background: #575757;
+        }
+        .menu-btn {
+            position: fixed;
+            left: 10px;
+            top: 10px;
+            font-size: 20px;
+            background: #333;
+            color: white;
+            padding: 10px;
+            cursor: pointer;
+            border: none;
+            z-index: 1000;
+        }
+        .open .sidebar {
+            transform: translateX(0);
         }
     </style>
 </head>
 <body>
+    <button class="menu-btn" onclick="toggleMenu()">☰ Menu</button>
+    <div class="sidebar">
+        <a href="#home">Home</a>
+        <a href="#o-co-kaman">O co kaman?</a>
+        <a href="#chce-do-domu">Chcę do domu</a>
+        <a href="#dlaczego-polska">Dlaczego Polska?</a>
+        <a href="#dlaczego-nie-norwegia">Dlaczego nie Norwegia</a>
+        <a href="#kontakt">Kontakt</a>
+    </div>
+
     <h1>O mnie</h1>
-    <p>Cześć! Nazywam się <b>Andrzej Kloc</b> i jestem doświadczonym inżynierem środowiska, który z entuzjazmem podchodzi do nowych technologii i odnawialnych źródeł energii. Można powiedzieć, że jestem trochę jak fotowoltaika – zawsze naładowany energią! ⚡</p>
+    <p>Cześć! Nazywam się <b>Andrzej Kloc</b>...</p>
     
-    <p>Przez lata zdobywałem wiedzę i umiejętności w zakresie doradztwa technicznego, sprzedaży oraz projektowania systemów HVAC i fotowoltaiki. Jeśli coś da się zoptymalizować, to z pewnością znajdę na to sposób!</p>
-    
-    <p>Moje doświadczenie obejmuje pracę nad projektami zarówno dla klientów indywidualnych, jak i biznesowych, co pozwoliło mi nie tylko rozwijać umiejętności techniczne, ale także sztukę budowania relacji biznesowych (czyli tłumaczenia klientom, dlaczego warto zainwestować w przyszłość 😉).</p>
-    
-    <p>Uwielbiam wyzwania i nieustannie poszerzam swoją wiedzę, uczestnicząc w szkoleniach branżowych oraz śledząc technologiczne nowinki. W pracy cenię profesjonalizm, zaangażowanie i efektywność – no i oczywiście kawę, która napędza moje inżynierskie myślenie! ☕</p>
-    
-    <p>Moim celem jest tworzenie rozwiązań, które łączą nowoczesność z dbałością o środowisko – bo przecież fajnie byłoby zostawić Ziemię w lepszym stanie, niż ją zastaliśmy.</p>
-    
-    <p>Zapraszam do kontaktu i współpracy! Nie gryzę (chyba że chodzi o pracę bez kawy 😆).</p>
-    
-    <h2>Kontakt</h2>
+    <h2 id="kontakt">Kontakt</h2>
     <p class="contact-info">
         <img src="https://cdn-icons-png.flaticon.com/512/561/561127.png" alt="Email">
         <a href="mailto:and.kloc@gmail.com">and.kloc@gmail.com</a>
@@ -58,5 +84,11 @@
         <img src="https://cdn-icons-png.flaticon.com/512/733/733547.png" alt="Facebook">
         <a href="https://www.facebook.com/andrzej.kloc.10" target="_blank">Mój profil na Facebooku</a>
     </p>
+
+    <script>
+        function toggleMenu() {
+            document.body.classList.toggle('open');
+        }
+    </script>
 </body>
 </html>
